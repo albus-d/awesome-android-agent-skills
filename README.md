@@ -1,132 +1,62 @@
-# Studio-Bot-Prompts-Handbook
-## Prompt Engineering Handbook for Android App Development with Studio Bot
+# Awesome Android Agent Skills
 
-Purpose: This repository contains a list of effective prompts to supercharge your Android app development using Studio Bot in Android Studio. Whether you're a beginner or experienced developer, you'll find practical guidance and examples showcaisng the usage of Gen AI to assit with your development process.
+[![Agent Skills](https://img.shields.io/badge/Agent-Skills-blue?style=flat&logo=github)](https://agentskills.io)
+[![Android](https://img.shields.io/badge/Android-Modern-green?style=flat&logo=android)](https://developer.android.com)
 
-Setup: As of February 2024, Studio Bot is available as an experimental feature in Android Studio Canary.
+Welcome to **Awesome Android Agent Skills**, a repository of specialized "brains" for your AI coding assistants. This project provides a suite of **Agent Skills** designed to supercharge GitHub Copilot, Claude, and other agentic AI tools with expert knowledge of modern Android development.
 
+## 🧠 What are Agent Skills?
 
-Table of Contents
+**Agent Skills** are a standardized way to package capabilities, instructions, and best practices for AI agents. Instead of pasting the same prompt repeatedly ("How do I implement MVVM?", "Check this for accessibility"), you install these skills into your agent's environment.
 
-1. Introduction
-2. Prompt Design Fundamentals
-3. Use Cases
-4. Best Practices
-5. Advanced Techniques
-6. Contributing
+When an agent detects you are working on a relevant task (e.g., "Create a verified repository"), it automatically loads the expert instructions from the corresponding `SKILL.md` file. This ensures:
+*   **Consistency**: The agent always follows your defined architecture.
+*   **Accuracy**: It uses the latest 2025 best practices (Compose, Hilt, Room).
+*   **Efficiency**: No need for long context-stuffing prompts.
 
+> Learn more at [agentskills.io](https://agentskills.io).
 
- Introduction
+## 🚀 Available Skills
 
-What is Prompt Engineering?
+These skills are located in `.github/skills/` and are ready for use by compatible agents (like GitHub Copilot Workspace or custom Claude environments).
 
-Prompt engineering is the science and art of designing text-based instructions or queries that effectively guide machine learning language models to generate desired results. 
-In Android development, we use prompt engineering to communicate our tasks and requirements to AI assistants like Studio Bot.
+*   **[🏗️ Android Architecture](.github/skills/android-architecture/SKILL.md)** (`android-architecture`)
+    *   Expert guidance on **Clean Architecture**, **Modularization**, and **Dependency Injection** with **Hilt**.
+    *   Ensures strict separation of UI, Domain, and Data layers.
 
+*   **[🎨 Jetpack Compose UI](.github/skills/compose-ui/SKILL.md)** (`compose-ui`)
+    *   Best practices for building stateless, performant Composables.
+    *   Focuses on **State Hoisting**, **Modifiers order**, and **Theming**.
 
-Importance for Android Development: 
+*   **[🔄 ViewModel & State](.github/skills/android-viewmodel/SKILL.md)** (`android-viewmodel`)
+    *   Proper implementation of **ViewModel** using `StateFlow` for UI state and `SharedFlow` for one-off events.
+    *   Avoids common pitfalls with channel usage and lifecycle collection.
 
-- Faster development by generating boilerplate code or complex structures.
-- Improved code quality through testcases, suggestions and refactoring.
-- Simplified debugging by pinpointing errors.
-- Faster translation of UI/UX mockups into code.
-- Documentation of your code.
+*   **[💾 Data Layer & Offline-First](.github/skills/android-data-layer/SKILL.md)** (`android-data-layer`)
+    *   Implements the **Repository Pattern** with **Room** (local) and **Retrofit** (remote).
+    *   Guides the agent to build robust **Offline-First** synchronization logic.
 
+*   **[♿ Accessibility](.github/skills/android-accessibility/SKILL.md)** (`android-accessibility`)
+    *   A rigorous checklist for auditing **Content Descriptions**, **Touch Targets**, and **Contrast**.
+    *   Ensures your app is usable by everyone.
 
-Studio Bot Overview: How it fits into the development process.
+## 🛠️ Usage
 
+### GitHub Copilot
+If this repository is part of your workspace, you can simply ask Copilot:
+> "How should I structure the new User Profile feature?"
+> "Create a repository for fetching News with offline support."
 
-## Prompt Design Fundamentals
+Copilot will detect the relevant skill (e.g., `android-architecture` or `android-data-layer`) and apply the rules defined in the `SKILL.md` files.
 
-Clear and Specific Goals
+### Manual / Other Agents
+You can also point any context-aware LLM (like ChatGPT or Claude) to the specific `SKILL.md` file you need help with.
+> "Read `.github/skills/compose-ui/SKILL.md` and then refactor this screen."
 
-Before crafting a prompt, define exactly what you want to achieve. Are you generating a new view? Refactoring an inefficient function? Debugging a layout issue?  The more focused your goal, the better your prompt.
+## 📚 Topics & Keywords
 
-Context is Key
+Android Development, Agent Skills, AI Coding Assistants, Jetpack Compose, Clean Architecture, MVVM, MVI, Hilt Dependency Injection, Room Database, Retrofit, Offline-First, Kotlin Coroutines, StateFlow, SharedFlow, Android Accessibility, Semantic Trees, Modularization, Mobile DevOps, GenAI for Mobile.
 
-Provide Studio Bot with the necessary information to understand your task. This might include:
+---
 
-Existing code snippets
-Descriptions of UI elements
-Relevant project structure
-Iterative Refinement
-
-Start with simple prompts and evaluate the results. Gradually add complexity, adjusting your language and structure for better outcomes.
-
-Leveraging Examples
-
-Example: Generate a basic RecyclerView adapter
-Prompt: "Create a RecyclerView adapter for a list of 'Product' objects. The Product class has properties 'name' (String) and 'price' (double)."
-
-
- Use Cases
-
-1. Code Generation:
-Creating standard components (Activities, Fragments, layouts).
-Implementing common functionalities (data handling, networking).
-Applying best practices and patterns.
-
-2. Code Refactoring:
-Optimizing performance and readability.
-Enforcing style guides.
-
-3. Debugging:
-Generating test cases.
-Finding potential logic errors.
-
-4.UI/UX Suggestions:
-Proposing layout alterations.
-Offering guidance based on accessibility principles.
-
-**Examples**
-
-Code Generation
-
- Creating standard components:
-Prompt: "Generate a new Activity named 'ProductDetailActivity' with a basic layout including a Toolbar."
-
- Implementing common functionalities:
-Prompt: "Implement a method to fetch product data from a REST API using Retrofit."
-
- Applying best practices and patterns:
-Prompt: "Generate the boilerplate code for a ViewModel following the MVVM architecture."
-
- Code Refactoring
-
- Optimizing performance and readability:
-Prompt: "Identify potential performance bottlenecks in this function and suggest refactoring for efficiency."
-
- Enforcing style guides:
-Prompt: "Rewrite this code snippet to conform to the project's code style conventions."
-
- Debugging:
-
- Generating test cases:
-Prompt: "Create unit test cases for a function 'calculateTotal()' that handles shopping cart calculations."
-
- Finding potential logic errors:
-Prompt: "Analyze this code for potential issues with null values that might lead to crashes."
-
- UI/UX Suggestions
-
- Proposing layout alterations:
-Prompt: "Suggest layout improvements for this product listing screen to enhance user experience."
-
- Offering guidance based on accessibility principles:
-Prompt: "Review this login form and recommend changes to improve accessibility for users with visual impairments."
-
-
- Best Practices
-
-Effective Language: Natural language vs. structured prompts.
-Version Control: Track successful prompts and changes.
-Community Collaboration: How to contribute and share.
- Advanced Techniques
-
-Chaining Prompts: Complex tasks through sequences.
-Fine-tuning: How to customize Studio Bot (if applicable).
- Additional Tips
-
-Regular Updates: Keep it current with new Studio Bot features.
-Encourage Examples: Invite community contributions to demonstrate practical applications.
-Focus on Quality: Prioritize well-explained prompts over sheer quantity.
+*Original "Studio-Bot-Prompts-Handbook" content has been superseded by these executable Agent Skills.*
