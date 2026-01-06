@@ -5,7 +5,7 @@
 
 Welcome to **Awesome Android Agent Skills**, a repository of specialized "brains" for your AI coding assistants. This project provides a suite of **Agent Skills** designed to supercharge GitHub Copilot, Claude, and other agentic AI tools with expert knowledge of modern Android development.
 
-## 🧠 What are Agent Skills?
+##  What are Agent Skills?
 
 **Agent Skills** are a standardized way to package capabilities, instructions, and best practices for AI agents. Instead of pasting the same prompt repeatedly ("How do I implement MVVM?", "Check this for accessibility"), you install these skills into your agent's environment.
 
@@ -16,7 +16,7 @@ When an agent detects you are working on a relevant task (e.g., "Create a verifi
 
 > Learn more at [agentskills.io](https://agentskills.io).
 
-## 🚀 Available Skills
+##  Available Skills
 
 These skills are located in `.github/skills/` and are ready for use by compatible agents (like GitHub Copilot Workspace or custom Claude environments).
 
@@ -40,6 +40,45 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   A rigorous checklist for auditing **Content Descriptions**, **Touch Targets**, and **Contrast**.
     *   Ensures your app is usable by everyone.
 
+## ⚙️ Setup in Your Project
+
+To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
+
+### Standard Location (VS Code / GitHub Copilot)
+The industry standard location for agent skills is the `.github/skills/` directory at the root of your workspace.
+
+1.  **Copy**: Copy the `.github/skills/` folder from this repository to your project's root.
+2.  **Verify**: Ensure your project structure looks like this:
+    ```text
+    my-android-project/
+    ├── .github/
+    │   └── skills/
+    │       ├── android-architecture/
+    │       │   └── SKILL.md
+    │       └── compose-ui/
+    │           └── SKILL.md
+    ├── app/
+    └── ...
+    ```
+3.  **Restart**: specific extensions (like Copilot) may need a window reload to index the new skills.
+
+### Other Environments
+
+*   **Claude / Anthropic**: Legacy or direct Claude usage often looks for `.claude/skills/`. You can copy or symlink `.github/skills` to `.claude/skills`.
+*   **OpenCode**: Supports `.opencode/skill/` (note singular `skill`) and `.claude/skills/`. Global skills can be placed in `~/.config/opencode/skill/`.
+
+### Creating Custom Skills
+To add your own skill:
+1.  Create a new folder in `.github/skills/` (e.g., `my-custom-skill`).
+2.  Add a `SKILL.md` file with the required frontmatter:
+    ```markdown
+    ---
+    name: my-custom-skill
+    description: Description of what this skill does
+    ---
+    # Instructions
+    ...
+    ```
 ## 🛠️ Usage
 
 ### GitHub Copilot
@@ -53,7 +92,7 @@ Copilot will detect the relevant skill (e.g., `android-architecture` or `android
 You can also point any context-aware LLM (like ChatGPT or Claude) to the specific `SKILL.md` file you need help with.
 > "Read `.github/skills/compose-ui/SKILL.md` and then refactor this screen."
 
-## 📚 Topics & Keywords
+##  Topics & Keywords
 
 Android Development, Agent Skills, AI Coding Assistants, Jetpack Compose, Clean Architecture, MVVM, MVI, Hilt Dependency Injection, Room Database, Retrofit, Offline-First, Kotlin Coroutines, StateFlow, SharedFlow, Android Accessibility, Semantic Trees, Modularization, Mobile DevOps, GenAI for Mobile.
 
