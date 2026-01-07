@@ -20,35 +20,35 @@ When an agent detects you are working on a relevant task (e.g., "Create a verifi
 
 These skills are located in `.github/skills/` and are ready for use by compatible agents (like GitHub Copilot Workspace or custom Claude environments).
 
-*   **[🏗️ Android Architecture](.github/skills/android-architecture/SKILL.md)** (`android-architecture`)
+*   **[Android Architecture](.github/skills/android-architecture/SKILL.md)** (`android-architecture`)
     *   Expert guidance on **Clean Architecture**, **Modularization**, and **Dependency Injection** with **Hilt**.
     *   Ensures strict separation of UI, Domain, and Data layers.
 
-*   **[🎨 Jetpack Compose UI](.github/skills/compose-ui/SKILL.md)** (`compose-ui`)
+*   **[Jetpack Compose UI](.github/skills/compose-ui/SKILL.md)** (`compose-ui`)
     *   Best practices for building stateless, performant Composables.
     *   Focuses on **State Hoisting**, **Modifiers order**, and **Theming**.
 
-*   **[🔄 ViewModel & State](.github/skills/android-viewmodel/SKILL.md)** (`android-viewmodel`)
+*   **[ViewModel & State](.github/skills/android-viewmodel/SKILL.md)** (`android-viewmodel`)
     *   Proper implementation of **ViewModel** using `StateFlow` for UI state and `SharedFlow` for one-off events.
     *   Avoids common pitfalls with channel usage and lifecycle collection.
 
-*   **[💾 Data Layer & Offline-First](.github/skills/android-data-layer/SKILL.md)** (`android-data-layer`)
+*   **[Data Layer & Offline-First](.github/skills/android-data-layer/SKILL.md)** (`android-data-layer`)
     *   Implements the **Repository Pattern** with **Room** (local) and **Retrofit** (remote).
     *   Guides the agent to build robust **Offline-First** synchronization logic.
 
-*   **[♿ Accessibility](.github/skills/android-accessibility/SKILL.md)** (`android-accessibility`)
+*   **[Accessibility](.github/skills/android-accessibility/SKILL.md)** (`android-accessibility`)
     *   A rigorous checklist for auditing **Content Descriptions**, **Touch Targets**, and **Contrast**.
     *   Ensures your app is usable by everyone.
 
-*   **[🐘 Gradle Build Logic](.github/skills/android-gradle-logic/SKILL.md)** (`android-gradle-logic`)
+*   **[Gradle Build Logic](.github/skills/android-gradle-logic/SKILL.md)** (`android-gradle-logic`)
     *   Set up **Convention Plugins**, **Version Catalogs**, and **Composite Builds**.
     *   Configure `build-logic` like a pro to share configurations across modules.
 
-*   **[🧪 Testing & Screenshots](.github/skills/android-testing/SKILL.md)** (`android-testing`)
+*   **[Testing & Screenshots](.github/skills/android-testing/SKILL.md)** (`android-testing`)
     *   Setup for **Unit**, **Hilt**, and **Screenshot Testing** (Roborazzi).
     *   Ensures a reliable testing pyramid with standard libraries.
 
-## ⚙️ Setup in Your Project
+## Setup in Your Project
 
 To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
 
@@ -87,7 +87,7 @@ To add your own skill:
     # Instructions
     ...
     ```
-## 🛠️ Usage
+## Usage
 
 ### GitHub Copilot
 If this repository is part of your workspace, you can simply ask Copilot:

@@ -30,7 +30,7 @@ root/
 └── settings.gradle.kts
 ```
 
-## 🛠️ Step 1: Configure `settings.gradle.kts`
+## Step 1: Configure `settings.gradle.kts`
 
 Include the `build-logic` as a plugin management source.
 
@@ -53,7 +53,7 @@ dependencyResolutionManagement {
 }
 ```
 
-## 📜 Step 2: Define Dependencies in `libs.versions.toml`
+## Step 2: Define Dependencies in `libs.versions.toml`
 
 Use the Version Catalog for both libraries *and* plugins.
 

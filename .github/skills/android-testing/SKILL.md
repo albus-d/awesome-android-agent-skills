@@ -28,7 +28,7 @@ hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testi
 roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
 ```
 
-## 📸 Screenshot Testing with Roborazzi
+## Screenshot Testing with Roborazzi
 
 Screenshot tests ensure your UI doesn't regress visually. NiA uses **Roborazzi** because it runs on the JVM (fast) without needing an emulator.
 
