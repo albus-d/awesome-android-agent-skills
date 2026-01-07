@@ -40,6 +40,14 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   A rigorous checklist for auditing **Content Descriptions**, **Touch Targets**, and **Contrast**.
     *   Ensures your app is usable by everyone.
 
+*   **[🐘 Gradle Build Logic](.github/skills/android-gradle-logic/SKILL.md)** (`android-gradle-logic`)
+    *   Set up **Convention Plugins**, **Version Catalogs**, and **Composite Builds**.
+    *   Configure `build-logic` like a pro to share configurations across modules.
+
+*   **[🧪 Testing & Screenshots](.github/skills/android-testing/SKILL.md)** (`android-testing`)
+    *   Setup for **Unit**, **Hilt**, and **Screenshot Testing** (Roborazzi).
+    *   Ensures a reliable testing pyramid with standard libraries.
+
 ## ⚙️ Setup in Your Project
 
 To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
