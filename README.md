@@ -48,6 +48,26 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   Setup for **Unit**, **Hilt**, and **Screenshot Testing** (Roborazzi).
     *   Ensures a reliable testing pyramid with standard libraries.
 
+*   **[Kotlin Concurrency Expert](.github/skills/kotlin-concurrency-expert/SKILL.md)** (`kotlin-concurrency-expert`)
+    *   Review and fix **Kotlin Coroutines** issues with triage-based workflow.
+    *   Covers **structured concurrency**, **lifecycle safety**, and **exception handling**.
+
+*   **[Compose Performance Audit](.github/skills/compose-performance-audit/SKILL.md)** (`compose-performance-audit`)
+    *   Audit and optimize **Jetpack Compose** runtime performance.
+    *   Identifies **recomposition storms**, **unstable keys**, and **heavy composition work**.
+
+*   **[XML to Compose Migration](.github/skills/xml-to-compose-migration/SKILL.md)** (`xml-to-compose-migration`)
+    *   Convert **XML layouts** to idiomatic **Jetpack Compose**.
+    *   Comprehensive mapping tables for layouts, widgets, and attributes.
+
+*   **[Compose Navigation](.github/skills/compose-navigation/SKILL.md)** (`compose-navigation`)
+    *   Type-safe navigation with **Navigation Compose**.
+    *   Covers **deep links**, **nested graphs**, **adaptive navigation**, and **testing**.
+
+*   **[Gradle Build Performance](.github/skills/gradle-build-performance/SKILL.md)** (`gradle-build-performance`)
+    *   Debug and optimize **Gradle/Android build times**.
+    *   12 optimization patterns including **Configuration Cache**, **KSP migration**, and **CI/CD caching**.
+
 ## Setup in Your Project
 
 To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
