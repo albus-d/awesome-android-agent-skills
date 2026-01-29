@@ -64,6 +64,10 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   Type-safe navigation with **Navigation Compose**.
     *   Covers **deep links**, **nested graphs**, **adaptive navigation**, and **testing**.
 
+*   **[Retrofit Networking](.github/skills/android-retrofit/SKILL.md)** (`android-retrofit`)
+    *   Expert guidance on **Retrofit**, **OkHttp**, and **Coroutines** for networking.
+    *   Includes configuration for **Serialization**, **Interceptors**, and **Hilt**.
+
 *   **[Gradle Build Performance](.github/skills/gradle-build-performance/SKILL.md)** (`gradle-build-performance`)
     *   Debug and optimize **Gradle/Android build times**.
     *   12 optimization patterns including **Configuration Cache**, **KSP migration**, and **CI/CD caching**.
