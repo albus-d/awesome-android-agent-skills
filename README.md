@@ -72,6 +72,10 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   Debug and optimize **Gradle/Android build times**.
     *   12 optimization patterns including **Configuration Cache**, **KSP migration**, and **CI/CD caching**.
 
+*   **[Coil for Jetpack Compose](.github/skills/coil-compose/SKILL.md)** (`coil-compose`)
+    *   Expert guidance on **Coil** for image loading in **Jetpack Compose**.
+    *   Covers **AsyncImage**, **state management**, and **performance optimization**.
+
 ## Setup in Your Project
 
 To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
