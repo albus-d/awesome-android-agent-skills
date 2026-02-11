@@ -76,6 +76,10 @@ These skills are located in `.github/skills/` and are ready for use by compatibl
     *   Expert guidance on **Coil** for image loading in **Jetpack Compose**.
     *   Covers **AsyncImage**, **state management**, and **performance optimization**.
 
+*   **[Android Emulator Automation](.github/skills/android-emulator-skill/SKILL.md)** (`android-emulator-skill`)
+    *   **Essential Production Scripts** for Semantic Navigation, Build, and Testing.
+    *   Automate **ADB**, **Emulator**, and **UIAutomator** workflows for AI agents.
+
 ## Setup in Your Project
 
 To equip your AI agent with these skills, you must place them in a location where the agent can discover them.
