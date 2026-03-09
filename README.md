@@ -1,21 +1,5 @@
 # Awesome Android Agent Skills
 
-[![Agent Skills](https://img.shields.io/badge/Agent-Skills-blue?style=flat&logo=github)](https://agentskills.io)
-[![Android](https://img.shields.io/badge/Android-Modern-green?style=flat&logo=android)](https://developer.android.com)
-
-Welcome to **Awesome Android Agent Skills**, a repository of specialized "brains" for your AI coding assistants. This project provides a suite of **Agent Skills** designed to supercharge GitHub Copilot, Claude, Google Gemini, Cursor and other agentic AI tools with expert knowledge of modern Android development.
-
-##  What are Agent Skills?
-
-**Agent Skills** are a standardized way to package capabilities, instructions, and best practices for AI agents. Instead of pasting the same prompt repeatedly ("How do I implement MVVM?", "Check this for accessibility"), you install these skills into your agent's environment.
-
-When an agent detects you are working on a relevant task (e.g., "Create a verified repository"), it automatically loads the expert instructions from the corresponding `SKILL.md` file. This ensures:
-*   **Consistency**: The agent always follows your defined architecture.
-*   **Accuracy**: It uses the latest 2025 best practices (Compose, Hilt, Room).
-*   **Efficiency**: No need for long context-stuffing prompts.
-
-> Learn more at [agentskills.io](https://agentskills.io).
-
 ##  Available Skills
 
 These skills are located in `.github/skills/` and are ready for use by compatible agents (like GitHub Copilot Workspace or custom Claude environments).
