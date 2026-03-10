@@ -24,7 +24,8 @@ The Data Layer coordinates data from multiple sources.
         // Sync operation
         suspend fun refreshNews() {
             val remoteNews = newsApi.fetchLatest()
-            newsDao.insertAll(remoteNews)
+            val validatedNews = remoteNews.filter { it.isValid() }
+            newsDao.insertAll(validatedNews)
         }
     }
     ```

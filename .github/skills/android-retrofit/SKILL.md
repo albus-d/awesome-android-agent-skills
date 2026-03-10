@@ -10,11 +10,12 @@ description: Expert guidance on setting up and using Retrofit for type-safe HTTP
 When implementing network layers using **Retrofit**, follow these modern Android best practices (2025).
 
 ### 1. URL Manipulation
+
 Retrofit allows dynamic URL updates through replacement blocks and query parameters.
 
-*   **Dynamic Paths**: Use `{name}` in the relative URL and `@Path("name")` in parameters.
-*   **Query Parameters**: Use `@Query("key")` for individual parameters.
-*   **Complex Queries**: Use `@QueryMap Map<String, String>` for dynamic sets of parameters.
+* **Dynamic Paths**: Use `{name}` in the relative URL and `@Path("name")` in parameters.
+* **Query Parameters**: Use `@Query("key")` for individual parameters.
+* **Complex Queries**: Use `@QueryMap Map<String, String>` for dynamic sets of parameters.
 
 ```kotlin
 interface SearchService {
@@ -28,11 +29,12 @@ interface SearchService {
 ```
 
 ### 2. Request Body & Form Data
+
 You can send objects as JSON bodies or use form-encoded/multipart formats.
 
-*   **@Body**: Serializes an object using the configured converter (JSON).
-*   **@FormUrlEncoded**: Sends data as `application/x-www-form-urlencoded`. Use `@Field`.
-*   **@Multipart**: Sends data as `multipart/form-data`. Use `@Part`.
+* **@Body**: Serializes an object using the configured converter (JSON).
+* **@FormUrlEncoded**: Sends data as `application/x-www-form-urlencoded`. Use `@Field`.
+* **@Multipart**: Sends data as `multipart/form-data`. Use `@Part`.
 
 ```kotlin
 interface UserService {
@@ -56,12 +58,13 @@ interface UserService {
 ```
 
 ### 3. Header Manipulation
+
 Headers can be set statically for a method or dynamically via parameters.
 
-*   **Static Headers**: Use `@Headers`.
-*   **Dynamic Headers**: Use `@Header`.
-*   **Header Maps**: Use `@HeaderMap`.
-*   **Global Headers**: Use an OkHttp **Interceptor**.
+* **Static Headers**: Use `@Headers`.
+* **Dynamic Headers**: Use `@Header`.
+* **Header Maps**: Use `@HeaderMap`.
+* **Global Headers**: Use an OkHttp **Interceptor**.
 
 ```kotlin
 interface WidgetService {
@@ -75,10 +78,11 @@ interface WidgetService {
 ```
 
 ### 4. Kotlin Support & Response Handling
+
 When using `suspend` functions, you have two choices for return types:
 
-1.  **Direct Body (`User`)**: Returns the deserialized body. Throws `HttpException` for non-2xx responses.
-2.  **`Response<User>`**: Provides access to the status code, headers, and error body. Does NOT throw on non-2xx results.
+1. **Direct Body (`User`)**: Returns the deserialized body. Throws `HttpException` for non-2xx responses.
+2. **`Response<User>`**: Provides access to the status code, headers, and error body. Does NOT throw on non-2xx results.
 
 ```kotlin
 @GET("users")
@@ -89,6 +93,7 @@ suspend fun getUsersResponse(): Response<List<User>> // Manual check
 ```
 
 ### 5. Hilt & Serialization Configuration
+
 Provide your Retrofit instances as singletons in a Hilt module.
 
 ```kotlin
@@ -106,7 +111,10 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+            else HttpLoggingInterceptor.Level.NONE
+        })
         .connectTimeout(30, TimeUnit.SECONDS)
         .build()
 
@@ -121,20 +129,24 @@ object NetworkModule {
 ```
 
 ### 6. Error Handling in Repositories
+
 Always handle network exceptions in the Repository layer to keep the UI state clean.
 
 ```kotlin
 class GitHubRepository @Inject constructor(private val service: GitHubService) {
-    suspend fun getRepos(username: String): Result<List<Repo>> = runCatching {
-        // Direct body call throws HttpException on 4xx/5xx
-        service.listRepos(username)
-    }.onFailure { exception ->
+    suspend fun getRepos(username: String): Result<List<Repo>> = try {
+        Result.success(service.listRepos(username))
+    } catch (e: CancellationException) {
+        throw e // Never swallow CancellationException
+    } catch (e: Exception) {
         // Handle specific exceptions like UnknownHostException or SocketTimeoutException
+        Result.failure(e)
     }
 }
 ```
 
 ### 7. Checklist
+
 - [ ] Use `suspend` functions for all network calls.
 - [ ] Prefer `Response<T>` if you need to handle specific status codes (e.g., 401 Unauthorized).
 - [ ] Use `@Path` and `@Query` instead of manual string concatenation for URLs.

@@ -266,11 +266,13 @@ tasks.register("myTask") { ... }
 buildCache {
     local { isEnabled = true }
     remote<HttpBuildCache> {
-        url = uri("https://cache.example.com/")
+        url = uri("https://cache.example.com/") // Ensure HTTPS with valid certificate
         isPush = System.getenv("CI") == "true"
         credentials {
             username = System.getenv("CACHE_USER")
+                ?: error("CACHE_USER env var required for remote build cache")
             password = System.getenv("CACHE_PASS")
+                ?: error("CACHE_PASS env var required for remote build cache")
         }
     }
 }
