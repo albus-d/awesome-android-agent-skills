@@ -19,6 +19,15 @@ Use `ViewModel` to hold state and business logic. It must outlive configuration 
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
     ```
 *   **Updates**: Update state using `.update { oldState -> ... }` for thread safety.
+*   **Dispatcher**: Always update UI state on the main dispatcher. Wrap updates with `withContext(Dispatchers.Main)` if called from a background coroutine.
+    ```kotlin
+    viewModelScope.launch {
+        val result = repository.fetchData() // runs on IO via repo
+        withContext(Dispatchers.Main) {
+            _uiState.update { it.copy(data = result) }
+        }
+    }
+    ```
 
 ### 2. One-Off Events (SharedFlow)
 *   **What**: Transient events like "Show Toast", "Navigate to Screen", "Show Snackbar".
