@@ -37,6 +37,15 @@ Read all changed files from the diff to understand the full scope of UI changes.
 
 ### Step 2: Fetch Figma Design Details
 
+**IMPORTANT — Figma Desktop App Required:**
+The Figma tools (`mcp__figma__*`) are provided by the **Figma MCP server**, which requires the **Figma Desktop App** to be running and logged in on the user's machine. The MCP server connects to the local Figma Desktop App instance to access design data.
+
+Before calling any Figma tool:
+1. Check that the Figma MCP tools are available in this session (they will appear in the available tools list as `mcp__figma__*`)
+2. If the tools are **NOT available**, stop and inform the user:
+   > "The Figma MCP server is not connected. To use Figma verification, please make sure the **Figma Desktop App** is running and logged in on your machine, and that the Figma MCP server is properly configured."
+3. Do **NOT** attempt to fetch Figma URLs via `WebFetch` or any other tool as a fallback — the Figma API requires authenticated MCP access through the Figma Desktop App.
+
 For each Figma URL provided by the user:
 
 1. Extract `fileKey` and `nodeId` from the URL (convert `-` to `:` in nodeId)
