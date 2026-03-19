@@ -1,0 +1,6 @@
+/verify-ui-figma origin/develop
++ Home Screen: https://www.figma.com/design/AbCdEf123/MyApp?node-id=123-456
++ Detail Screen: https://www.figma.com/design/AbCdEf123/MyApp?node-id=789-012
++ Bottom Sheet: https://www.figma.com/design/AbCdEf123/MyApp?node-id=345-678
+
+/review-branch-code origin/develop
