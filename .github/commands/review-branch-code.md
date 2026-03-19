@@ -103,56 +103,29 @@ Structure your report as follows. Assign a unique ID to each issue (S1, S2… fo
 <List of changed files>
 
 ## Security Issues
-| ID | Severity | File:Line | Issue | Recommendation | Detail |
-|----|----------|-----------|-------|----------------|--------|
-| S1 | ...      | ...       | ...   | ...            | [Explain S1](#s1) |
+| ID | Severity | File:Line | Issue | Recommendation |
+|----|----------|-----------|-------|----------------|
+| S1 | ...      | ...       | ...   | ...            |
 
 ## Bugs & Logic Errors
-| ID | Severity | File:Line | Issue | Recommendation | Detail |
-|----|----------|-----------|-------|----------------|--------|
-| B1 | ...      | ...       | ...   | ...            | [Explain B1](#b1) |
+| ID | Severity | File:Line | Issue | Recommendation |
+|----|----------|-----------|-------|----------------|
+| B1 | ...      | ...       | ...   | ...            |
 
 ## Skill Violations
-| ID | Skill | Rule | File:Line | Issue | Fix | Detail |
-|----|-------|------|-----------|-------|-----|--------|
-| SK1 | ...  | ...  | ...       | ...   | ... | [Explain SK1](#sk1) |
+| ID | Skill | Rule | File:Line | Issue | Fix |
+|----|-------|------|-----------|-------|-----|
+| SK1 | ...  | ...  | ...       | ...   | ... |
 
 ## Overall Verdict
 <CLEAN / HAS ISSUES>
 <Summary of critical items that must be addressed>
 
----
-
-## Issue Detail Commands
-Run any command below to open a new terminal tab with a detailed explanation of the issue:
-
-<For each issue, generate a command in this format:>
-
-**[S1]**
-\`\`\`bash
-osascript -e 'tell application "Terminal" to do script "claude \"In file <File:Line>, there is a <Severity> <issue_type> issue: <Issue>. Explain in detail why this is a problem, what could go wrong, show a concrete example of how it can be exploited or fail, and provide the recommended fix with code.\""'
-\`\`\`
-
-**[B1]**
-\`\`\`bash
-osascript -e 'tell application "Terminal" to do script "claude \"In file <File:Line>, there is a <Severity> bug: <Issue>. Explain in detail why this is a bug, what could go wrong in production, show a concrete scenario where it fails, and provide the recommended fix with code.\""'
-\`\`\`
-
-**[SK1]**
-\`\`\`bash
-osascript -e 'tell application "Terminal" to do script "claude \"In file <File:Line>, there is a <Skill> skill violation (<Rule>): <Issue>. Explain in detail why this violates the rule, what negative effects it can cause (performance, maintainability, correctness), and provide the recommended fix with code.\""'
-\`\`\`
 ```
 
 Use severity levels: CRITICAL, HIGH, MEDIUM, LOW, INFO
 
 If a section has no findings, write "No issues found." instead of an empty table.
-
-**Important:** When generating the detail commands:
-- Escape all double quotes inside the `osascript` command properly (use `\\\"` for inner quotes)
-- Include the actual file path, line number, issue description, and recommendation in the prompt
-- Keep the prompt concise but include enough context for Claude to give a thorough explanation
-- Generate detail commands for ALL issues regardless of severity (including LOW and INFO)
 
 ## Important Notes
 - Be thorough but avoid false positives — only report issues you are confident about
