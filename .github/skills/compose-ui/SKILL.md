@@ -16,16 +16,17 @@ Make Composables **stateless** whenever possible by moving state to the caller.
     ```kotlin
     @Composable
     fun MyComponent(
-        value: String,              // State flows down
+        value: String,                   // Required params first
         onValueChange: (String) -> Unit, // Events flow up
-        modifier: Modifier = Modifier // Standard modifier parameter
+        modifier: Modifier = Modifier,   // First optional parameter
+        enabled: Boolean = true          // Other optional params after modifier
     )
     ```
 *   **Benefit**: Decouples the UI from simple state storage, making it easier to preview and test.
 *   **ViewModel Integration**: The screen-level Composable retrieves state from the ViewModel (`viewModel.uiState.collectAsStateWithLifecycle()`) and passes it down.
 
 ### 2. Modifiers
-*   **Default Parameter**: Always provide a `modifier: Modifier = Modifier` as the first optional parameter.
+*   **Default Parameter**: Always provide a `modifier: Modifier = Modifier` as the **first optional parameter** (after all required parameters, before other optional parameters).
 *   **Application**: Apply this `modifier` to the *root* layout element of your Composable.
 *   **Ordering matters**: `padding().clickable()` is different from `clickable().padding()`. Generally apply layout-affecting modifiers (like padding) *after* click listeners if you want the padding to be clickable.
 

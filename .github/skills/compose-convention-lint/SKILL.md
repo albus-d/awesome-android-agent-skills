@@ -81,7 +81,42 @@ fun Chart() {
 2. `private val` — internal dependencies
 3. `val` / `var` — publicly exposed properties
 
-### 5. Mixing CompositionLocal Styles in Same Composable
+### 5. Composable Function Parameter Ordering
+
+**Rule**: For `@Composable` functions, order parameters as:
+1. Required parameters (no default value) — state and event callbacks
+2. `modifier: Modifier = Modifier` — always the **first optional parameter**
+3. Other optional parameters (with default values)
+
+```kotlin
+// BAD — modifier as first parameter before required params
+@Composable
+fun MyComponent(
+    modifier: Modifier = Modifier,
+    title: String,
+    onClick: () -> Unit
+)
+
+// BAD — modifier after other optional params
+@Composable
+fun MyComponent(
+    title: String,
+    onClick: () -> Unit,
+    enabled: Boolean = true,
+    modifier: Modifier = Modifier
+)
+
+// GOOD — modifier is first optional param
+@Composable
+fun MyComponent(
+    title: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
+)
+```
+
+### 6. Mixing CompositionLocal Styles in Same Composable
 
 **Anti-pattern**: A composable receives explicit `color`/`size` params but also reads `LocalCustomColorsPalette.current` or `LocalCustomSizesPalette.current` internally.
 
